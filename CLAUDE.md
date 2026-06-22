@@ -18,9 +18,11 @@ grady-agents/
 
 Each agent lives in `.claude/agents/<agent-name>/` as a Markdown file with YAML frontmatter. The frontmatter defines the agent's name, description, model, and tools.
 
-| Agent | Purpose |
-|-------|---------|
-| `iot-research` | IoT and telematics market research — vendor comparison, market sizing, competitor intel, regulation. Primary focus on Indonesia and SEA. |
+<!-- AGENTS-TABLE-START -->
+| Agent | Model | Purpose |
+|-------|-------|---------|
+| `iot-research` | opus | Use when the user asks any question about the telematics or fleet management industry — market sizing, trends, vendor comparison, product specs, competitor intel, pricing, or regulation. Handles day-to-day research questions in a conversational way. Covers Indonesia and SEA as primary markets, with global context where relevant. Key vendors the user works with include Teltonika, BSJ, and Howen. |
+<!-- AGENTS-TABLE-END -->
 
 ## Skills
 

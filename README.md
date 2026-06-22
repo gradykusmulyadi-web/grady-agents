@@ -32,16 +32,16 @@ Reusable skill definitions that can be invoked across sessions or composed into 
 
 ## Agents
 
+<!-- AGENTS-START -->
 ### `iot-research`
 
-> Senior IoT and telematics market researcher embedded at McEasy.
+> Use when the user asks any question about the telematics or fleet management industry — market sizing, trends, vendor comparison, product specs, competitor intel, pricing, or regulation. Handles day-to-day research questions in a conversational way. Covers Indonesia and SEA as primary markets, with global context where relevant. Key vendors the user works with include Teltonika, BSJ, and Howen.
 
-- **Model:** Opus
+- **Model:** opus
 - **Tools:** WebSearch, WebFetch, Read, Glob, Grep
-- **Scope:** Market sizing, vendor comparison, competitor intel, hardware specs, regulation — Indonesia and SEA primary, global context where relevant.
-- **Key vendors:** Teltonika, BSJ, Howen
 
 ---
+<!-- AGENTS-END -->
 
 ## Adding a New Agent
 
