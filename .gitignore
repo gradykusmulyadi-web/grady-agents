@@ -1,0 +1,13 @@
+# Claude Code local settings
+.claude/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Temp files from pre-commit hook
+*.tmp
