@@ -50,6 +50,33 @@ Reusable skill definitions that can be invoked across sessions or composed into 
 - **Tools:** WebSearch, WebFetch, Read, Glob, Grep
 
 ---
+
+### `task-daily-review`
+
+> Use when the user wants to know what to work on today or this week. Reads all active tasks, prioritizes by urgency, and outputs a ranked table with reasoning. Triggers include "what should I work on today", "daily review", "weekly recap", "what's due this week", "task priority", "morning briefing", "what's on my plate".
+
+- **Model:** sonnet
+- **Tools:** Read
+
+---
+
+### `task-editor`
+
+> Use when the user wants to edit a task, update task fields, resolve flagged tasks, or mark a task as complete. Also use when the user says "show task editor" to render the full task list as an interactive UI. Triggers include "update task", "mark done", "fix flagged", "edit T003", "resolve flags", "show task editor", "task editor UI".
+
+- **Model:** haiku
+- **Tools:** Read, Write
+
+---
+
+### `task-intake`
+
+> Use when the user wants to add a new task. Parses natural language task descriptions, fills structured fields, flags missing or unclear data, and appends to the task tracker. Triggers include phrases like "add a task", "new task", "I need to track", "log a task", or when the user describes work they need to do.
+
+- **Model:** haiku
+- **Tools:** Read, Write
+
+---
 <!-- AGENTS-END -->
 
 ## Adding a New Agent
