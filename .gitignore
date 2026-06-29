@@ -1,6 +1,9 @@
 # Claude Code local settings
 .claude/settings.local.json
 
+# Personal task tracker (kept local, not in repo)
+.claude/tasks/tasks.md
+
 # OS
 .DS_Store
 Thumbs.db
