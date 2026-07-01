@@ -14,3 +14,8 @@ Thumbs.db
 
 # Temp files from pre-commit hook
 *.tmp
+
+# CV screening (screen-cv skill) — personal data & generated output, keep local
+jobs/*/inbox/
+jobs/*/processed/
+outputs/

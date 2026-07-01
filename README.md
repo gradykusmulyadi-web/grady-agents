@@ -42,12 +42,39 @@ Reusable skill definitions that can be invoked across sessions or composed into 
 
 ---
 
+### `cv-screener`
+
+> Core CV screening engine. Reads a single CV file against the job rubric and examples, and emits a structured scoring record. Called in a loop by the /screen-cv skill for every file in inbox/. Recommended model: Sonnet.
+
+- **Model:** sonnet
+- **Tools:** Read, Write, Bash
+
+---
+
+### `feedback-learner`
+
+> Reads a recruiter-corrected screening spreadsheet, diffs agent tiers vs recruiter overrides, and updates rubric.md and examples.md to close the gap. Recommended model: Opus.
+
+- **Model:** opus
+- **Tools:** Read, Write, Bash
+
+---
+
 ### `iot-research`
 
 > Use when the user asks any question about the telematics or fleet management industry — market sizing, trends, vendor comparison, product specs, competitor intel, pricing, or regulation. Handles day-to-day research questions in a conversational way. Covers Indonesia and SEA as primary markets, with global context where relevant. Key vendors the user works with include Teltonika, BSJ, and Howen.
 
 - **Model:** opus
 - **Tools:** WebSearch, WebFetch, Read, Glob, Grep
+
+---
+
+### `rubric-builder`
+
+> Converts a raw Job Description into a structured, editable rubric.md that the cv-screener agent uses for scoring. Run once per new position. Recommended model: Opus.
+
+- **Model:** opus
+- **Tools:** Read, Write, Bash
 
 ---
 
