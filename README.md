@@ -60,6 +60,15 @@ Reusable skill definitions that can be invoked across sessions or composed into 
 
 ---
 
+### `fireflies-summarizer`
+
+> Fetches a Fireflies.ai transcript by ID and produces a structured meeting summary — themes, decisions, action items, and a critical read. Invoke with a transcript ID.
+
+- **Model:** sonnet
+- **Tools:** 
+
+---
+
 ### `iot-research`
 
 > Use when the user asks any question about the telematics or fleet management industry — market sizing, trends, vendor comparison, product specs, competitor intel, pricing, or regulation. Handles day-to-day research questions in a conversational way. Covers Indonesia and SEA as primary markets, with global context where relevant. Key vendors the user works with include Teltonika, BSJ, and Howen.
