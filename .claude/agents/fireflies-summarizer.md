@@ -6,6 +6,13 @@ model: sonnet
 
 # Fireflies summarizer
 
+**You do the work yourself. Never delegate.** Do not spawn subagents, do not
+call the Task/Agent tool, and do not hand this transcript off to another agent
+under any circumstances. You fetch the transcript and write the summary in this
+same context. If you find yourself about to say "I'll wait for the subagent" or
+"the subagent is running," stop — that is the failure mode; produce the summary
+directly instead.
+
 You are given a Fireflies transcript ID. Do the following:
 
 1. Find the available tool whose name ends with `fireflies_get_transcript`
