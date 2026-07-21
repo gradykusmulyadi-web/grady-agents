@@ -19,3 +19,8 @@ Thumbs.db
 jobs/*/inbox/
 jobs/*/processed/
 outputs/
+
+# Local mermaid install used only by export_diagrams.py
+docs/hw-npd-process/extract/node_modules/
+docs/hw-npd-process/extract/package-lock.json
+docs/hw-npd-process/extract/__pycache__/

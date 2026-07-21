@@ -1,0 +1,1265 @@
+{
+  "source": "IoT BP V3.6.xlsx",
+  "roles": [
+    "CEO",
+    "CTO",
+    "IoT Product Owner",
+    "IoT Engineer",
+    "Application Engineer",
+    "Kernel Engineer",
+    "SW Product",
+    "SW Engineering",
+    "QA / QC",
+    "Procurement",
+    "Finance",
+    "Head of Service",
+    "Commercial (CBO/Mktg)"
+  ],
+  "lanes": {
+    "Full NPD": "full_npd",
+    "HW Upgrade": "hw_upgrade",
+    "FW Upgrade": "fw_upgrade",
+    "New SW Feature": "new_sw_feature"
+  },
+  "tasks": [
+    {
+      "id": "T01",
+      "stage": "0. Opportunity",
+      "task": "Draft business case",
+      "deliverable": "Business case doc: market size, target BOM cost, target price, margin envelope, capex ask, strategic fit",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 5,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "CEO": "A",
+        "IoT Product Owner": "R",
+        "Finance": "C",
+        "Commercial (CBO/Mktg)": "C"
+      },
+      "responsible": [
+        "IoT Product Owner"
+      ],
+      "accountable": [
+        "CEO"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade"
+      ],
+      "notes": "NEW in V4. Nothing is spent before this exists."
+    },
+    {
+      "id": "T02",
+      "stage": "0. Opportunity",
+      "task": "GATE 1: Business Case Approval",
+      "deliverable": "Signed approval + budget envelope released. Kill criteria recorded in writing.",
+      "is_gate": true,
+      "gate_decision": "Approve / Rework / Kill",
+      "days": 3,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "CEO": "A",
+        "IoT Product Owner": "R",
+        "Finance": "C"
+      },
+      "responsible": [
+        "IoT Product Owner"
+      ],
+      "accountable": [
+        "CEO"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade"
+      ],
+      "notes": "NEW in V4. Approval flows IoT Product Owner -> CEO."
+    },
+    {
+      "id": "T04",
+      "stage": "1. Pre-DoE",
+      "task": "Create L1 Product Requirement",
+      "deliverable": "L1 doc incl. success KPIs (install success rate, uptime, data completeness, RMA rate, attach rate). Where hardware is in scope, also target BOM cost and margin envelope.",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 7,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "CEO": "A",
+        "IoT Product Owner": "R",
+        "IoT Engineer": "C",
+        "SW Product": "C",
+        "Finance": "C"
+      },
+      "responsible": [
+        "IoT Product Owner"
+      ],
+      "accountable": [
+        "CEO"
+      ],
+      "lanes": [
+        "full_npd",
+        "fw_upgrade"
+      ],
+      "notes": "Cost + KPI targets enter at L1. HW Upgrade reuses the original L1; the SW Feature lane starts at L2 instead."
+    },
+    {
+      "id": "T05",
+      "stage": "1. Pre-DoE",
+      "task": "GATE 2: L1 Requirement Approval",
+      "deliverable": "Approved L1 baselined. Any later change goes through Change Control (see Read Me).",
+      "is_gate": true,
+      "gate_decision": "Approve / Rework / Kill",
+      "days": 3,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "CEO": "A",
+        "IoT Product Owner": "R"
+      },
+      "responsible": [
+        "IoT Product Owner"
+      ],
+      "accountable": [
+        "CEO"
+      ],
+      "lanes": [
+        "full_npd",
+        "fw_upgrade"
+      ],
+      "notes": "CEO gate. FW Upgrade needs L1 sign-off; HW Upgrade has no new L1 to approve."
+    },
+    {
+      "id": "T06",
+      "stage": "1. Pre-DoE",
+      "task": "Source vendors (min 3 quoted, min 2 technically viable)",
+      "deliverable": "Vendor longlist + comparison matrix. Single-source requires a signed risk waiver.",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 7,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "IoT Product Owner": "R",
+        "IoT Engineer": "C",
+        "Procurement": "A"
+      },
+      "responsible": [
+        "IoT Product Owner"
+      ],
+      "accountable": [
+        "Procurement"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade"
+      ],
+      "notes": "Added second-source requirement."
+    },
+    {
+      "id": "T07",
+      "stage": "1. Pre-DoE",
+      "task": "Vendor qualification & risk assessment",
+      "deliverable": "Vendor scorecard: company size / annual sales volume - presence in SE Asia & Indonesia - MOQ - warranty model",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 3,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "IoT Product Owner": "A",
+        "IoT Engineer": "C",
+        "Procurement": "R"
+      },
+      "responsible": [
+        "Procurement"
+      ],
+      "accountable": [
+        "IoT Product Owner"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade"
+      ],
+      "notes": "SIMPLIFIED in V5 to 4 criteria. Contract terms are handled at T28."
+    },
+    {
+      "id": "T08",
+      "stage": "1. Pre-DoE",
+      "task": "Procure evaluation samples",
+      "deliverable": "Samples received + goods receipt. Spend against T02 budget envelope.",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 10,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "IoT Product Owner": "A",
+        "Procurement": "R"
+      },
+      "responsible": [
+        "Procurement"
+      ],
+      "accountable": [
+        "IoT Product Owner"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "T09",
+      "stage": "2. DoE",
+      "task": "Prepare L2 requirement + functional test cases",
+      "deliverable": "L2 spec + test cases with PASS/FAIL thresholds defined BEFORE testing. In the New SW Feature lane, update the existing L2 where applicable rather than creating a new one.",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 7,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "IoT Product Owner": "A",
+        "IoT Engineer": "R"
+      },
+      "responsible": [
+        "IoT Engineer"
+      ],
+      "accountable": [
+        "IoT Product Owner"
+      ],
+      "lanes": [
+        "full_npd",
+        "new_sw_feature"
+      ],
+      "notes": "Thresholds pre-committed so gates are judged on data, not narrative. HW Upgrade reuses the original L2 and its test cases."
+    },
+    {
+      "id": "T10",
+      "stage": "2. DoE",
+      "task": "Execute functional test case",
+      "deliverable": "Test report vs thresholds",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 3,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "IoT Engineer": "R/A"
+      },
+      "responsible": [
+        "IoT Engineer"
+      ],
+      "accountable": [
+        "IoT Engineer"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade",
+        "new_sw_feature"
+      ],
+      "notes": "In the SW Feature lane the HW team runs this before any software build starts."
+    },
+    {
+      "id": "T11",
+      "stage": "2. DoE",
+      "task": "GATE 3: Functional test result approval",
+      "deliverable": "Approved functional test result. For the Full NPD and HW Upgrade lanes, also the robustness test plan: temperature - vibration - power consumption - IP rating - backup on power loss.",
+      "is_gate": true,
+      "gate_decision": "Approve / Rework / Kill",
+      "days": 3,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "CEO": "A",
+        "IoT Engineer": "R"
+      },
+      "responsible": [
+        "IoT Engineer"
+      ],
+      "accountable": [
+        "CEO"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade",
+        "new_sw_feature"
+      ],
+      "notes": "CEO approves. In the SW Feature lane this gates the software build - no PRD until the HW functional result passes."
+    },
+    {
+      "id": "T12",
+      "stage": "2. DoE",
+      "task": "Execute robustness test (min 1 week)",
+      "deliverable": "Robustness report vs thresholds",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 7,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "IoT Engineer": "R/A"
+      },
+      "responsible": [
+        "IoT Engineer"
+      ],
+      "accountable": [
+        "IoT Engineer"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "T13",
+      "stage": "2. DoE",
+      "task": "GATE 4: Robustness result approval",
+      "deliverable": "Signed QA acceptance. Design freeze declared here.",
+      "is_gate": true,
+      "gate_decision": "Approve / Rework / Kill",
+      "days": 3,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "CEO": "A",
+        "IoT Product Owner": "C",
+        "IoT Engineer": "R"
+      },
+      "responsible": [
+        "IoT Engineer"
+      ],
+      "accountable": [
+        "CEO"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade"
+      ],
+      "notes": "Design freeze - T14 certification cannot start before this."
+    },
+    {
+      "id": "T14",
+      "stage": "2. DoE",
+      "task": "Initiate SDPPI / Postel certification",
+      "deliverable": "Application filed + test lab slot booked",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 45,
+      "critical_path": false,
+      "track": "Certification",
+      "status": "Active",
+      "raci": {
+        "IoT Product Owner": "R",
+        "IoT Engineer": "C",
+        "Procurement": "A"
+      },
+      "responsible": [
+        "IoT Product Owner"
+      ],
+      "accountable": [
+        "Procurement"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade"
+      ],
+      "notes": "MOVED EARLIER. Starts at design freeze (T13), runs parallel. Fixed external queue time - cannot be compressed by adding people. VERIFY current SDPPI lead time; 45d is a placeholder."
+    },
+    {
+      "id": "T15",
+      "stage": "2. DoE",
+      "task": "Cost checkpoint: landed BOM vs margin envelope",
+      "deliverable": "Landed cost model (unit + duty + freight + provisioning) vs the governing L1 margin envelope - the new L1, or the original product's in the HW Upgrade lane",
+      "is_gate": true,
+      "gate_decision": "Proceed / Renegotiate / Kill",
+      "days": 2,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "IoT Product Owner": "C",
+        "Procurement": "R",
+        "Finance": "A"
+      },
+      "responsible": [
+        "Procurement"
+      ],
+      "accountable": [
+        "Finance"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade"
+      ],
+      "notes": "KILL TRIGGER. Breaks margin envelope = stop before integration spend."
+    },
+    {
+      "id": "T16",
+      "stage": "3. Integration",
+      "task": "Create integration contract (data logic, SW spec)",
+      "deliverable": "Signed integration contract",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 3,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "IoT Product Owner": "C",
+        "IoT Engineer": "R",
+        "Kernel Engineer": "C",
+        "SW Product": "A"
+      },
+      "responsible": [
+        "IoT Engineer"
+      ],
+      "accountable": [
+        "SW Product"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade",
+        "fw_upgrade"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "T17",
+      "stage": "3. Integration",
+      "task": "Present integration contract to SW team",
+      "deliverable": "Walkthrough done, SW estimates committed",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 3,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "IoT Engineer": "R",
+        "Kernel Engineer": "C",
+        "SW Product": "A",
+        "SW Engineering": "C"
+      },
+      "responsible": [
+        "IoT Engineer"
+      ],
+      "accountable": [
+        "SW Product"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "T18",
+      "stage": "3. Integration",
+      "task": "Integrate data from HW to MEP Server",
+      "deliverable": "Data flowing, parser deployed to staging",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 14,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "IoT Engineer": "C",
+        "Kernel Engineer": "R",
+        "SW Engineering": "A"
+      },
+      "responsible": [
+        "Kernel Engineer"
+      ],
+      "accountable": [
+        "SW Engineering"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade",
+        "fw_upgrade"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "T19",
+      "stage": "3. Integration",
+      "task": "GATE: PRD Approval",
+      "deliverable": "Approved PRD covering platform scope, acceptance criteria, and dependencies on the integration contract",
+      "is_gate": true,
+      "gate_decision": "Approve / Rework",
+      "days": 3,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "CTO": "A",
+        "IoT Product Owner": "C",
+        "SW Product": "R",
+        "SW Engineering": "C"
+      },
+      "responsible": [
+        "SW Product"
+      ],
+      "accountable": [
+        "CTO"
+      ],
+      "lanes": [
+        "full_npd",
+        "new_sw_feature"
+      ],
+      "notes": "NEW in V6. No platform build starts without an approved PRD. NOTE: T19 in V5 was 'Develop platform functions', now T20."
+    },
+    {
+      "id": "T20",
+      "stage": "3. Integration",
+      "task": "Develop platform functions (Live View, Report, Dashboard)",
+      "deliverable": "Features deployed to staging",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 7,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "IoT Product Owner": "C",
+        "SW Product": "R",
+        "SW Engineering": "A"
+      },
+      "responsible": [
+        "SW Product"
+      ],
+      "accountable": [
+        "SW Engineering"
+      ],
+      "lanes": [
+        "full_npd",
+        "new_sw_feature"
+      ],
+      "notes": "RENUMBERED in V6 from T19. T20 in V4 was the security review, removed in V5."
+    },
+    {
+      "id": "T21",
+      "stage": "3. Integration",
+      "task": "SW QC approval (JIRA)",
+      "deliverable": "JIRA tickets closed, regression suite green",
+      "is_gate": true,
+      "gate_decision": "Approve / Rework",
+      "days": 3,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "SW Product": "R",
+        "SW Engineering": "A",
+        "QA / QC": "C"
+      },
+      "responsible": [
+        "SW Product"
+      ],
+      "accountable": [
+        "SW Engineering"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade",
+        "fw_upgrade",
+        "new_sw_feature"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "T22",
+      "stage": "3. Integration",
+      "task": "Integration test approval (SW + HW data flow)",
+      "deliverable": "End-to-end test report signed",
+      "is_gate": true,
+      "gate_decision": "Approve / Rework",
+      "days": 3,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "IoT Engineer": "A",
+        "Kernel Engineer": "R",
+        "SW Product": "R",
+        "SW Engineering": "C"
+      },
+      "responsible": [
+        "Kernel Engineer",
+        "SW Product"
+      ],
+      "accountable": [
+        "IoT Engineer"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade",
+        "fw_upgrade"
+      ],
+      "notes": "Kernel Engineer and SW Product both Responsible; IoT Engineer accountable."
+    },
+    {
+      "id": "T23",
+      "stage": "3. Integration",
+      "task": "Run product final UAT",
+      "deliverable": "UAT executed against L1 acceptance criteria",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 3,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "IoT Product Owner": "R/A",
+        "Head of Service": "C"
+      },
+      "responsible": [
+        "IoT Product Owner"
+      ],
+      "accountable": [
+        "IoT Product Owner"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade",
+        "fw_upgrade",
+        "new_sw_feature"
+      ],
+      "notes": "Applies to every lane - nothing ships unaccepted."
+    },
+    {
+      "id": "T24",
+      "stage": "3. Integration",
+      "task": "GATE 5: Final UAT approval vs L1",
+      "deliverable": "Signed UAT acceptance against the governing requirement - L1, the original L1 in the HW Upgrade lane, or L2 in the New SW Feature lane",
+      "is_gate": true,
+      "gate_decision": "Approve / Rework / Kill",
+      "days": 3,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "CEO": "A",
+        "IoT Product Owner": "R"
+      },
+      "responsible": [
+        "IoT Product Owner"
+      ],
+      "accountable": [
+        "CEO"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade",
+        "fw_upgrade",
+        "new_sw_feature"
+      ],
+      "notes": "CEO approves. Applies to every lane."
+    },
+    {
+      "id": "T25",
+      "stage": "4. PoC",
+      "task": "Define PoC plan",
+      "deliverable": "PoC plan: min 3 sites, customer selection criteria, success thresholds, cost owner, signed customer PoC agreement",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 3,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "CEO": "A",
+        "IoT Product Owner": "R",
+        "Commercial (CBO/Mktg)": "C"
+      },
+      "responsible": [
+        "IoT Product Owner"
+      ],
+      "accountable": [
+        "CEO"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade"
+      ],
+      "notes": "NEW in V4. V3 had an undefined 1-site PoC with no success criteria."
+    },
+    {
+      "id": "T26",
+      "stage": "4. PoC",
+      "task": "Run PoC on customer sites (min 3)",
+      "deliverable": "PoC results vs pre-agreed thresholds",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 21,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "CEO": "A",
+        "IoT Product Owner": "R",
+        "IoT Engineer": "C",
+        "Head of Service": "C"
+      },
+      "responsible": [
+        "IoT Product Owner"
+      ],
+      "accountable": [
+        "CEO"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade"
+      ],
+      "notes": "Expanded from 1 site / 14d to 3 sites / 21d."
+    },
+    {
+      "id": "T27",
+      "stage": "4. PoC",
+      "task": "GATE 6: PoC Go / No-Go",
+      "deliverable": "Commercial launch commitment or documented kill",
+      "is_gate": true,
+      "gate_decision": "Approve / Rework / Kill",
+      "days": 3,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "CEO": "A",
+        "IoT Product Owner": "R",
+        "Finance": "C",
+        "Commercial (CBO/Mktg)": "C"
+      },
+      "responsible": [
+        "IoT Product Owner"
+      ],
+      "accountable": [
+        "CEO"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade"
+      ],
+      "notes": "CEO gate. Last cheap exit."
+    },
+    {
+      "id": "T28",
+      "stage": "5. Pre-Comm",
+      "task": "Finalise vendor agreement",
+      "deliverable": "Executed contract: quality agreement, EOL/lifecycle clause, Incoterms, warranty terms, MOQ & lead time",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 7,
+      "critical_path": false,
+      "track": "Commercial",
+      "status": "Active",
+      "raci": {
+        "IoT Product Owner": "C",
+        "Procurement": "R/A",
+        "Finance": "C"
+      },
+      "responsible": [
+        "Procurement"
+      ],
+      "accountable": [
+        "Procurement"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade"
+      ],
+      "notes": "Parallel to PoC."
+    },
+    {
+      "id": "T29",
+      "stage": "5. Pre-Comm",
+      "task": "Prepare SOP, WI, Techapp, QC parameters",
+      "deliverable": "Published SOP/WI set",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 7,
+      "critical_path": false,
+      "track": "Service",
+      "status": "Active",
+      "raci": {
+        "IoT Engineer": "R",
+        "Application Engineer": "C",
+        "Head of Service": "A"
+      },
+      "responsible": [
+        "IoT Engineer"
+      ],
+      "accountable": [
+        "Head of Service"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade"
+      ],
+      "notes": "Parallel to PoC."
+    },
+    {
+      "id": "T30",
+      "stage": "5. Pre-Comm",
+      "task": "Manufacturing & logistics readiness",
+      "deliverable": "Incoming QC procedure, IMEI/serial management, provisioning & flashing process, packaging spec, import/customs path",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 10,
+      "critical_path": false,
+      "track": "Supply",
+      "status": "Active",
+      "raci": {
+        "IoT Engineer": "A",
+        "Procurement": "R",
+        "Finance": "I",
+        "Head of Service": "C"
+      },
+      "responsible": [
+        "Procurement"
+      ],
+      "accountable": [
+        "IoT Engineer"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade"
+      ],
+      "notes": "NEW in V4. V3 jumped straight to stock pre-order."
+    },
+    {
+      "id": "T31",
+      "stage": "5. Pre-Comm",
+      "task": "Define warranty, RMA & spare parts policy",
+      "deliverable": "Warranty terms, RMA workflow, spare parts stocking plan, cost provision",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 5,
+      "critical_path": false,
+      "track": "Supply",
+      "status": "Deferred",
+      "raci": {
+        "Procurement": "C",
+        "Finance": "A",
+        "Head of Service": "R"
+      },
+      "responsible": [
+        "Head of Service"
+      ],
+      "accountable": [
+        "Finance"
+      ],
+      "lanes": [],
+      "notes": "DEFERRED in V5 - out of scope for now, retained for future revision."
+    },
+    {
+      "id": "T32",
+      "stage": "5. Pre-Comm",
+      "task": "Define OTA / firmware lifecycle policy",
+      "deliverable": "Versioning scheme, staged rollout plan (5%/25%/100%), rollback procedure, fleet FW compliance tracking",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 5,
+      "critical_path": false,
+      "track": "Supply",
+      "status": "Deferred",
+      "raci": {
+        "IoT Product Owner": "A",
+        "IoT Engineer": "C",
+        "Kernel Engineer": "R",
+        "Head of Service": "C"
+      },
+      "responsible": [
+        "Kernel Engineer"
+      ],
+      "accountable": [
+        "IoT Product Owner"
+      ],
+      "lanes": [],
+      "notes": "DEFERRED in V5 - out of scope for now, retained for future revision."
+    },
+    {
+      "id": "T33",
+      "stage": "5. Pre-Comm",
+      "task": "Train Service Leader (BAST) + certify installers",
+      "deliverable": "BAST signed + installer certification register",
+      "is_gate": true,
+      "gate_decision": "Approve / Rework",
+      "days": 3,
+      "critical_path": false,
+      "track": "Service",
+      "status": "Active",
+      "raci": {
+        "IoT Engineer": "C",
+        "Application Engineer": "R",
+        "Head of Service": "A"
+      },
+      "responsible": [
+        "Application Engineer"
+      ],
+      "accountable": [
+        "Head of Service"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade"
+      ],
+      "notes": "Added installer certification."
+    },
+    {
+      "id": "T34",
+      "stage": "5. Pre-Comm",
+      "task": "Support readiness",
+      "deliverable": "Support runbook, escalation matrix, L1/L2 troubleshooting scripts, known-issues list",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 5,
+      "critical_path": false,
+      "track": "Service",
+      "status": "Active",
+      "raci": {
+        "IoT Product Owner": "C",
+        "Application Engineer": "A",
+        "Head of Service": "R"
+      },
+      "responsible": [
+        "Head of Service"
+      ],
+      "accountable": [
+        "Application Engineer"
+      ],
+      "lanes": [
+        "full_npd",
+        "fw_upgrade",
+        "new_sw_feature"
+      ],
+      "notes": "NEW in V4."
+    },
+    {
+      "id": "T35",
+      "stage": "5. Pre-Comm",
+      "task": "Confirm SDPPI certification received",
+      "deliverable": "Certificate in hand. HARD BLOCKER - no legal sale without it.",
+      "is_gate": true,
+      "gate_decision": "Blocker check",
+      "days": 2,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "CEO": "I",
+        "IoT Product Owner": "R",
+        "Procurement": "A"
+      },
+      "responsible": [
+        "IoT Product Owner"
+      ],
+      "accountable": [
+        "Procurement"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade"
+      ],
+      "notes": "NEW in V4 as an explicit blocking check."
+    },
+    {
+      "id": "T36",
+      "stage": "5. Pre-Comm",
+      "task": "GATE 7: Pricing & Packaging approval",
+      "deliverable": "Approved price book + packaging, validated against T15 landed cost",
+      "is_gate": true,
+      "gate_decision": "Approve / Rework",
+      "days": 3,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "CEO": "A",
+        "IoT Product Owner": "R",
+        "Finance": "C",
+        "Commercial (CBO/Mktg)": "C"
+      },
+      "responsible": [
+        "IoT Product Owner"
+      ],
+      "accountable": [
+        "CEO"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade"
+      ],
+      "notes": "Now a CONFIRMATION against the T04 cost target, not a discovery."
+    },
+    {
+      "id": "T37",
+      "stage": "5. Pre-Comm",
+      "task": "Present commercialization deck to commercial leaders",
+      "deliverable": "Deck delivered, sales objections logged",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 3,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "IoT Product Owner": "R/A",
+        "Commercial (CBO/Mktg)": "C"
+      },
+      "responsible": [
+        "IoT Product Owner"
+      ],
+      "accountable": [
+        "IoT Product Owner"
+      ],
+      "lanes": [
+        "full_npd"
+      ],
+      "notes": "Full NPD only - a vendor swap is not re-sold to the commercial team."
+    },
+    {
+      "id": "T38",
+      "stage": "6. Comm",
+      "task": "Pre-order initial stock",
+      "deliverable": "PO raised against approved forecast",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 3,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "IoT Product Owner": "C",
+        "Procurement": "R",
+        "Finance": "A"
+      },
+      "responsible": [
+        "Procurement"
+      ],
+      "accountable": [
+        "Finance"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "T39",
+      "stage": "6. Comm",
+      "task": "Present in Monthly Product Demo",
+      "deliverable": "Demo delivered",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 3,
+      "critical_path": false,
+      "track": "Commercial",
+      "status": "Active",
+      "raci": {
+        "IoT Product Owner": "R/A"
+      },
+      "responsible": [
+        "IoT Product Owner"
+      ],
+      "accountable": [
+        "IoT Product Owner"
+      ],
+      "lanes": [
+        "full_npd",
+        "fw_upgrade",
+        "new_sw_feature"
+      ],
+      "notes": "Nothing new to demo on a vendor swap."
+    },
+    {
+      "id": "T40",
+      "stage": "6. Comm",
+      "task": "Launch external communication w/ Marketing",
+      "deliverable": "Launch collateral live",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 14,
+      "critical_path": false,
+      "track": "Commercial",
+      "status": "Active",
+      "raci": {
+        "IoT Product Owner": "A",
+        "Commercial (CBO/Mktg)": "R"
+      },
+      "responsible": [
+        "Commercial (CBO/Mktg)"
+      ],
+      "accountable": [
+        "IoT Product Owner"
+      ],
+      "lanes": [
+        "full_npd",
+        "new_sw_feature"
+      ],
+      "notes": "Marketing executes, IoT Product Owner owns the outcome."
+    },
+    {
+      "id": "T41",
+      "stage": "6. Comm",
+      "task": "Sales enablement ready",
+      "deliverable": "Battlecard, demo kit, pricing calculator, objection handling, trained AEs",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 7,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "IoT Product Owner": "A",
+        "Head of Service": "C",
+        "Commercial (CBO/Mktg)": "R"
+      },
+      "responsible": [
+        "Commercial (CBO/Mktg)"
+      ],
+      "accountable": [
+        "IoT Product Owner"
+      ],
+      "lanes": [
+        "full_npd",
+        "new_sw_feature"
+      ],
+      "notes": "Full NPD only - existing enablement already covers the category."
+    },
+    {
+      "id": "T42",
+      "stage": "7. Post-Comm",
+      "task": "Review installation quality (first 20-50 installs)",
+      "deliverable": "Install quality report + corrective actions",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 30,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "IoT Engineer": "R",
+        "Application Engineer": "C",
+        "Head of Service": "A"
+      },
+      "responsible": [
+        "IoT Engineer"
+      ],
+      "accountable": [
+        "Head of Service"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade"
+      ],
+      "notes": "Duration added (was blank in V3)."
+    },
+    {
+      "id": "T43",
+      "stage": "7. Post-Comm",
+      "task": "Track KPIs vs L1 targets (30/60/90 day)",
+      "deliverable": "KPI dashboard vs the governing requirement's KPI targets: install success, uptime, data completeness, RMA rate, attach rate, realised margin",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 90,
+      "critical_path": false,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "IoT Product Owner": "R/A",
+        "Finance": "C",
+        "Head of Service": "C"
+      },
+      "responsible": [
+        "IoT Product Owner"
+      ],
+      "accountable": [
+        "IoT Product Owner"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade",
+        "fw_upgrade",
+        "new_sw_feature"
+      ],
+      "notes": "NEW in V4. Makes T44 a data review, not a storytelling session."
+    },
+    {
+      "id": "T44",
+      "stage": "7. Post-Comm",
+      "task": "GATE 8: 3-month post-release review",
+      "deliverable": "Scale / Fix / Sunset decision recorded against KPI targets",
+      "is_gate": true,
+      "gate_decision": "Scale / Fix / Sunset",
+      "days": 3,
+      "critical_path": true,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "CEO": "A",
+        "IoT Product Owner": "R",
+        "Finance": "C"
+      },
+      "responsible": [
+        "IoT Product Owner"
+      ],
+      "accountable": [
+        "CEO"
+      ],
+      "lanes": [
+        "full_npd",
+        "hw_upgrade"
+      ],
+      "notes": "CEO gate."
+    },
+    {
+      "id": "T45",
+      "stage": "7. Post-Comm",
+      "task": "Annual lifecycle & EOL review",
+      "deliverable": "Continue / refresh / EOL decision + migration plan for installed base",
+      "is_gate": false,
+      "gate_decision": "",
+      "days": 5,
+      "critical_path": false,
+      "track": "Main",
+      "status": "Active",
+      "raci": {
+        "CEO": "A",
+        "IoT Product Owner": "R",
+        "Procurement": "C",
+        "Head of Service": "C"
+      },
+      "responsible": [
+        "IoT Product Owner"
+      ],
+      "accountable": [
+        "CEO"
+      ],
+      "lanes": [
+        "full_npd"
+      ],
+      "notes": "NEW in V4. V3 had no sunset path. Product-level, not run per upgrade."
+    }
+  ]
+}
