@@ -24,3 +24,7 @@ outputs/
 docs/hw-npd-process/extract/node_modules/
 docs/hw-npd-process/extract/package-lock.json
 docs/hw-npd-process/extract/__pycache__/
+
+# Python bytecode
+__pycache__/
+*.pyc

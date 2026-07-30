@@ -33,6 +33,15 @@ Reusable skill definitions that can be invoked across sessions or composed into 
 ## Agents
 
 <!-- AGENTS-START -->
+### `ar-reconciliation`
+
+> Rekonsiliasi pembayaran bank terhadap invoice ERP untuk AR Collection. Beri path file invoice (.xlsx) dan file pembayaran (.xlsx), agent akan menjalankan matcher deterministik dan menghasilkan file rekonsiliasi baru dengan tingkat keyakinan (%) per invoice. Balasan agent memakai Bahasa Indonesia secara default.
+
+- **Model:** sonnet
+- **Tools:** Read, Bash
+
+---
+
 ### `c-level-shield`
 
 > Use after writer agent completes the PRD draft. Simulates hard questions from McEasy C-Level executives (CEO, COO, CFO, CTO, CBO, CDSO) and appends a Q&A section to the PRD. Protects the product owner from being caught off guard in real C-level reviews.

@@ -10,7 +10,8 @@ grady-agents/
 │   ├── agents/               # Claude agent definitions (.md files with frontmatter)
 │   │   └── iot-research.md
 │   ├── skills/               # Reusable skill definitions
-│   │   └── screen-cv/        # CV screening orchestrator (SKILL.md + deterministic scorers)
+│   │   ├── screen-cv/        # CV screening orchestrator (SKILL.md + deterministic scorers)
+│   │   └── reconcile-ar/     # Deterministic AR payment-to-invoice matcher (match.py)
 │   └── tasks/
 │       └── tasks.md          # Personal task tracker (git-tracked)
 ├── jobs/                     # One folder per open position (screen-cv skill); _TEMPLATE scaffolds new ones
@@ -26,6 +27,7 @@ Each agent lives in `.claude/agents/<agent-name>/` as a Markdown file with YAML 
 <!-- AGENTS-TABLE-START -->
 | Agent | Model | Purpose |
 |-------|-------|---------|
+| `ar-reconciliation` | sonnet | Rekonsiliasi pembayaran bank terhadap invoice ERP untuk AR Collection. Beri path file invoice (.xlsx) dan file pembayaran (.xlsx), agent akan menjalankan matcher deterministik dan menghasilkan file rekonsiliasi baru dengan tingkat keyakinan (%) per invoice. Balasan agent memakai Bahasa Indonesia secara default. |
 | `c-level-shield` | sonnet | Use after writer agent completes the PRD draft. Simulates hard questions from McEasy C-Level executives (CEO, COO, CFO, CTO, CBO, CDSO) and appends a Q&A section to the PRD. Protects the product owner from being caught off guard in real C-level reviews. |
 | `cv-screener` | sonnet | Core CV screening engine. Reads a single CV file against the job rubric and examples, and emits a structured scoring record. Called in a loop by the /screen-cv skill for every file in inbox/. Recommended model: Sonnet. |
 | `feedback-learner` | opus | Reads a recruiter-corrected screening spreadsheet, diffs agent tiers vs recruiter overrides, and updates rubric.md and examples.md to close the gap. Recommended model: Opus. |
