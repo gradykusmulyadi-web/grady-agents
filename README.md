@@ -122,6 +122,15 @@ Reusable skill definitions that can be invoked across sessions or composed into 
 - **Tools:** Read, Write
 
 ---
+
+### `vendor-price-tracker`
+
+> Extracts line items from a vendor pricing quote (PDF or .xlsx) and merges them into the running vendor pricing master workbook at outputs/vendor_pricing_master.xlsx. Give it one or more vendor quote file paths; it categorizes each line item (GPS / Dashcam / MDVR / Other Sensors / Memory Cards / Software & Services), flags peripherals, converts to USD, and reports what changed. Invoked by the /record-pricing skill.
+
+- **Model:** sonnet
+- **Tools:** Read, Write, Bash
+
+---
 <!-- AGENTS-END -->
 
 ## Adding a New Agent

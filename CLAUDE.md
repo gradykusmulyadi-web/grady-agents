@@ -11,11 +11,18 @@ grady-agents/
 │   │   └── iot-research.md
 │   ├── skills/               # Reusable skill definitions
 │   │   ├── screen-cv/        # CV screening orchestrator (SKILL.md + deterministic scorers)
-│   │   └── reconcile-ar/     # Deterministic AR payment-to-invoice matcher (match.py)
+│   │   ├── reconcile-ar/     # Deterministic AR payment-to-invoice matcher (match.py)
+│   │   └── record-pricing/   # Vendor quote -> pricing master merger (SKILL.md + merge.py)
 │   └── tasks/
 │       └── tasks.md          # Personal task tracker (git-tracked)
+├── analysis/                 # Reproducible one-off analysis scripts (read source, write to outputs/)
+│   ├── churn-cohort/         # v1: churn-only extract, mix-based (analyze.py)
+│   └── churn-cohort-v2/      # v2: active base + churn -> Kaplan-Meier rates
+│       ├── core.py           #   loading, dedup, reason propagation, KM
+│       ├── compute.py        #   all derived tables, assertions
+│       └── analyze.py        #   workbook + target list writer, CLI entry point
 ├── jobs/                     # One folder per open position (screen-cv skill); _TEMPLATE scaffolds new ones
-├── outputs/                  # Generated screening spreadsheets (git-ignored)
+├── outputs/                  # Generated spreadsheets and reports (git-ignored)
 ├── CLAUDE.md                 # This file
 └── README.md
 ```
@@ -37,6 +44,7 @@ Each agent lives in `.claude/agents/<agent-name>/` as a Markdown file with YAML 
 | `task-daily-review` | sonnet | Use when the user wants to know what to work on today or this week. Reads all active tasks, prioritizes by urgency, and outputs a ranked table with reasoning. Triggers include "what should I work on today", "daily review", "weekly recap", "what's due this week", "task priority", "morning briefing", "what's on my plate". |
 | `task-editor` | haiku | Use when the user wants to edit a task, update task fields, resolve flagged tasks, or mark a task as complete. Also use when the user says "show task editor" to render the full task list as an interactive UI. Triggers include "update task", "mark done", "fix flagged", "edit T003", "resolve flags", "show task editor", "task editor UI". |
 | `task-intake` | haiku | Use when the user wants to add a new task. Parses natural language task descriptions, fills structured fields, flags missing or unclear data, and appends to the task tracker. Triggers include phrases like "add a task", "new task", "I need to track", "log a task", or when the user describes work they need to do. |
+| `vendor-price-tracker` | sonnet | Extracts line items from a vendor pricing quote (PDF or .xlsx) and merges them into the running vendor pricing master workbook at outputs/vendor_pricing_master.xlsx. Give it one or more vendor quote file paths; it categorizes each line item (GPS / Dashcam / MDVR / Other Sensors / Memory Cards / Software & Services), flags peripherals, converts to USD, and reports what changed. Invoked by the /record-pricing skill. |
 <!-- AGENTS-TABLE-END -->
 
 ## Skills
@@ -47,6 +55,7 @@ Skills live in `.claude/skills/` and are reusable prompt workflows invocable acr
 |-------|---------|
 | `screen-cv` | Orchestrates the CV screening pipeline. Sub-commands: `setup` (scaffold a job folder + build its rubric via `rubric-builder`), `<job-id>` (screen every CV in `jobs/<job-id>/inbox/` via `cv-screener`, score deterministically, emit a ranked spreadsheet to `outputs/`), and `feedback <job-id>` (apply recruiter corrections via `feedback-learner`). Tier/score are computed by `score.py`/`score.ps1`, never by hand. |
 | `fireflies` | The `/fireflies` slash command. Summarizes a Fireflies.ai meeting transcript: pass a transcript ID to summarize directly, a partial meeting name to search the last 2 weeks and pick, or nothing to list recent transcripts. Delegates all fetching/analysis to the `fireflies-summarizer` agent. |
+| `record-pricing` | The `/record-pricing` slash command. Pass one or more vendor quote files (PDF/.xlsx); merges extracted line items into `outputs/vendor_pricing_master.xlsx` via the `vendor-price-tracker` agent and `merge.py`'s deterministic currency conversion, latest-flagging, and dedup. |
 
 ## Conventions
 
